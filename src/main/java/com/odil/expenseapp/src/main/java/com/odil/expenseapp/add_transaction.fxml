@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.odil.expenseapp.ui.AddTransactionController"
+      spacing="10" padding="12">
+    <Label text="Transaction Details" styleClass="title"/>
+    <GridPane hgap="10" vgap="8">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" prefWidth="120"/>
+            <ColumnConstraints prefWidth="260"/>
+        </columnConstraints>
+        <RowConstraints prefHeight="28"/>
+
+        <Label text="Date:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="datePicker" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Description:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="descriptionField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Category:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="categoryField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Type:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="typeBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Amount (₹):" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="amountField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="8" alignment="CENTER_RIGHT">
+        <Button fx:id="saveBtn" text="Save" onAction="#onSave"/>
+        <Button fx:id="cancelBtn" text="Cancel" onAction="#onCancel"/>
+    </HBox>
+</VBox>
