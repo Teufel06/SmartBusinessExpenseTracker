@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:controller="com.odil.expenseapp.ui.DashboardController"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <top>
+        <HBox spacing="12" padding="12">
+            <Label text="Smart Business Expense Tracker" styleClass="title"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Label text="Year:"/>
+            <ComboBox fx:id="yearBox" prefWidth="100"/>
+            <Label text="Month:"/>
+            <ComboBox fx:id="monthBox" prefWidth="80"/>
+            <Button text="Refresh" onAction="#refreshAll"/>
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.6">
+            <TableView fx:id="table">
+                <columns>
+                    <TableColumn fx:id="colDate" text="Date" prefWidth="110"/>
+                    <TableColumn fx:id="colDesc" text="Description" prefWidth="220"/>
+                    <TableColumn fx:id="colCat"  text="Category" prefWidth="140"/>
+                    <TableColumn fx:id="colType" text="Type" prefWidth="90"/>
+                    <TableColumn fx:id="colAmount" text="Amount (₹)" prefWidth="120"/>
+                </columns>
+            </TableView>
+            <VBox spacing="10" padding="12">
+                <Label text="Expense by Category"/>
+                <PieChart fx:id="pieChart" prefHeight="260"/>
+                <HBox spacing="8">
+                    <Label text="Income:"/>
+                    <Label fx:id="lblIncome" text="₹ 0.00" styleClass="metric"/>
+                </HBox>
+                <HBox spacing="8">
+                    <Label text="Expense:"/>
+                    <Label fx:id="lblExpense" text="₹ 0.00" styleClass="metric"/>
+                </HBox>
+                <HBox spacing="8">
+                    <Label text="Profit:"/>
+                    <Label fx:id="lblProfit" text="₹ 0.00" styleClass="metric"/>
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" padding="12" alignment="CENTER_RIGHT">
+            <Button text="Add" onAction="#onAdd"/>
+            <Button text="Edit" onAction="#onEdit"/>
+            <Button text="Delete" onAction="#onDelete"/>
+        </HBox>
+    </bottom>
+</BorderPane>
